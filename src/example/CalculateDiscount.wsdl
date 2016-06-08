@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://example" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://example" xmlns:intf="http://example" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Calculates Discount for Costumer</wsdl:documentation>
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://example" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="clacReturn" type="xsd:int"/>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="clacResponse">
+
+      <wsdl:part element="impl:clacReturn" name="clacReturn"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="clacRequest">
+
+   </wsdl:message>
+
+   <wsdl:portType name="CalculateDiscount">
+
+      <wsdl:operation name="clac">
+
+         <wsdl:input message="impl:clacRequest" name="clacRequest"/>
+
+         <wsdl:output message="impl:clacResponse" name="clacResponse"/>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="CalculateDiscountSoapBinding" type="impl:CalculateDiscount">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="clac">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="clacRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="clacResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="CalculateDiscountService">
+
+      <wsdl:port binding="impl:CalculateDiscountSoapBinding" name="CalculateDiscount">
+
+         <wsdlsoap:address location="http://localhost:8080//services/example/CalculateDiscount"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
