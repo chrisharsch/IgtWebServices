@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://example" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://example" xmlns:intf="http://example" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+
+   <wsdl:message name="HalloWeltRequest">
+
+   </wsdl:message>
+
+   <wsdl:message name="HalloWeltResponse">
+
+   </wsdl:message>
+
+   <wsdl:portType name="SalesCounter">
+
+      <wsdl:operation name="HalloWelt">
+
+         <wsdl:input message="impl:HalloWeltRequest" name="HalloWeltRequest"/>
+
+         <wsdl:output message="impl:HalloWeltResponse" name="HalloWeltResponse"/>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="SalesCounterSoapBinding" type="impl:SalesCounter">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="HalloWelt">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="HalloWeltRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="HalloWeltResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="SalesCounterService">
+
+      <wsdl:port binding="impl:SalesCounterSoapBinding" name="SalesCounter">
+
+         <wsdlsoap:address location="http://localhost:8080//services/example/SalesCounter"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
